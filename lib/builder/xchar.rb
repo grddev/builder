@@ -109,9 +109,9 @@ if String.method_defined?(:encode)
         Builder::XChar::VALID.map { |item|
           case item
           when Fixnum
-            [item].pack('U').force_encoding('utf-8')
+            '\u%04x' % item
           when Range
-            [item.first, '-'.ord, item.last].pack('UUU').force_encoding('utf-8')
+            '\u%04x-\u%04x' % [item.first, item.last]
           end
         }.join +
       ']')
