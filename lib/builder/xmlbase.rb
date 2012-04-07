@@ -80,6 +80,13 @@ module Builder
       @target
     end
 
+    # Workaround jruby 1.6.4 bug https://github.com/jruby/jruby/pull/73
+    if ::Object::const_defined?(:JRUBY_VERSION) && ::JRUBY_VERSION == '1.6.4'
+      def respond_to?(m)
+        m != :to_ary
+      end
+    end
+
     # Append text to the output target.  Escape any markup.  May be
     # used within the markup brackets as:
     #
