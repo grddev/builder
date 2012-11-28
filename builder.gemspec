@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.summary  = "Builders for MarkUp."
   s.description = %{\
 Builder provides a number of builder objects that make creating structured data
-simple to do.  Currently the following builder objects are supported:
+simple to do.  Currently the following builder objects are supported:\
 
 * XML Markup
 * XML Events
